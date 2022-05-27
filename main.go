@@ -9,7 +9,8 @@ import (
 
 func main() {
 	var f filter.Filter = filter.Grayscale{}
-	t := task.NewWaitGrpTask("./imgs", "output", f)
+	// t := task.NewWaitGrpTask("./imgs", "output", f)
+	t := task.NewChanTask("./imgs", "output", f, 4)
 
 	start := time.Now()
 	t.Process()
